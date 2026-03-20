@@ -1,0 +1,426 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- PAGE HERO -->
+<section class="page-hero" aria-labelledby="careers-hero-title">
+  <div class="container">
+    <div class="page-hero__inner">
+      <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+        <a href="{{ url_for('index') }}">Home</a>
+        <span aria-hidden="true">›</span>
+        <span aria-current="page">Careers</span>
+      </nav>
+      <h1 class="page-hero__title" id="careers-hero-title">
+        Join Our Team
+      </h1>
+      <p class="page-hero__subtitle">
+        We're looking for compassionate, dedicated people who want to make a
+        real difference in the lives of individuals and families across the
+        Twin Cities. If that sounds like you — we'd love to meet you.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     WHY WORK WITH US
+     ============================================================ -->
+<section class="section section--gray" aria-labelledby="why-work-title">
+  <div class="container">
+
+    <div class="section-header section-header--center">
+      <span class="section-label">Why Signia</span>
+      <h2 class="section-title" id="why-work-title">
+        Why Work at Signia Home Care?
+      </h2>
+      <p class="section-subtitle">
+        We believe that great care starts with great caregivers. We invest in
+        our team because when our staff thrives, so do the people we serve.
+      </p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card text-center">
+        <span class="card__icon" aria-hidden="true">❤️</span>
+        <h3 class="card__title">Meaningful Work</h3>
+        <p class="card__text">
+          Every day you come to work, you make a tangible difference in
+          someone's life. Few careers offer that kind of purpose and fulfillment.
+        </p>
+      </div>
+      <div class="card text-center">
+        <span class="card__icon" aria-hidden="true">🤝</span>
+        <h3 class="card__title">Supportive Team Culture</h3>
+        <p class="card__text">
+          We treat our staff with the same respect and compassion we show our
+          clients. You'll never feel like just a number here.
+        </p>
+      </div>
+      <div class="card text-center">
+        <span class="card__icon" aria-hidden="true">📈</span>
+        <h3 class="card__title">Growth Opportunities</h3>
+        <p class="card__text">
+          We support professional development and growth. Whether you're just
+          starting out or advancing your career, there's a place for you here.
+        </p>
+      </div>
+      <div class="card text-center">
+        <span class="card__icon" aria-hidden="true">🕐</span>
+        <h3 class="card__title">Flexible Scheduling</h3>
+        <p class="card__text">
+          We offer a range of shift options — full-time, part-time, and on-call
+          — to fit your lifestyle and availability.
+        </p>
+      </div>
+      <div class="card text-center">
+        <span class="card__icon" aria-hidden="true">📍</span>
+        <h3 class="card__title">Serve Your Community</h3>
+        <p class="card__text">
+          Work close to home, serving individuals and families in Minneapolis
+          and the communities you know and care about.
+        </p>
+      </div>
+      <div class="card text-center">
+        <span class="card__icon" aria-hidden="true">🌍</span>
+        <h3 class="card__title">Inclusive Workplace</h3>
+        <p class="card__text">
+          Signia Home Care is proud to be an equal opportunity employer. We
+          celebrate diversity and welcome applicants of all backgrounds.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     OPEN POSITIONS
+     ============================================================ -->
+<section class="section" aria-labelledby="positions-title">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <span class="section-label">Open Positions</span>
+      <h2 class="section-title" id="positions-title">
+        Current Openings
+      </h2>
+      <p class="section-subtitle">
+        Don't see the exact role you're looking for? Apply anyway — we're
+        always interested in connecting with great people.
+      </p>
+    </div>
+
+    <div class="grid-2" style="max-width: 860px; margin: 0 auto var(--space-10);">
+
+      <div class="card card--flat">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-3);">
+          <div>
+            <span style="font-size: 1.5rem;" aria-hidden="true">🧑‍⚕️</span>
+            <h3 class="card__title" style="margin-top: var(--space-2);">Home Care Aide (PCA)</h3>
+            <p class="card__text">Provide personal care and household support to clients in their homes.</p>
+            <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
+              <span class="category-badge category-badge--comprehensive">Full-Time</span>
+              <span class="category-badge category-badge--basic">Part-Time</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card--flat">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-3);">
+          <div>
+            <span style="font-size: 1.5rem;" aria-hidden="true">💉</span>
+            <h3 class="card__title" style="margin-top: var(--space-2);">Registered Nurse (RN)</h3>
+            <p class="card__text">Conduct assessments, oversee care plans, and provide skilled nursing in the home.</p>
+            <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
+              <span class="category-badge category-badge--comprehensive">Full-Time</span>
+              <span class="category-badge category-badge--basic">On-Call</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card--flat">
+        <div>
+          <span style="font-size: 1.5rem;" aria-hidden="true">😊</span>
+          <h3 class="card__title" style="margin-top: var(--space-2);">Companion / Support Worker</h3>
+          <p class="card__text">Provide companionship, supervision, and community support to individuals with disabilities.</p>
+          <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
+            <span class="category-badge category-badge--basic">Part-Time</span>
+            <span class="category-badge category-badge--basic">On-Call</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card--flat">
+        <div>
+          <span style="font-size: 1.5rem;" aria-hidden="true">🌙</span>
+          <h3 class="card__title" style="margin-top: var(--space-2);">Overnight / Night Supervision Staff</h3>
+          <p class="card__text">Provide overnight supervision and support for individuals who need a nighttime safety presence.</p>
+          <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
+            <span class="category-badge category-badge--comprehensive">Part-Time</span>
+            <span class="category-badge category-badge--basic">On-Call</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="text-center" style="color: var(--color-text-muted); font-size: var(--text-sm);">
+      * Position availability may vary. All positions are subject to background check,
+      reference verification, and applicable Minnesota licensure requirements.
+    </p>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     APPLICATION FORM
+     ============================================================ -->
+<section class="section section--gray" id="apply" aria-labelledby="apply-title">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <span class="section-label">Apply Now</span>
+      <h2 class="section-title" id="apply-title">
+        Employment Application
+      </h2>
+      <p class="section-subtitle">
+        Complete the form below to apply for a position with Signia Home Care.
+        We review all applications and will reach out if there is a potential fit.
+      </p>
+    </div>
+
+    <div class="form-section" style="max-width: 860px; margin: 0 auto;">
+
+      <form action="{{ url_for('careers') }}#apply" method="POST" novalidate enctype="multipart/form-data">
+
+        <div class="form-grid form-grid--2">
+
+
+          <!-- SECTION: Personal Information -->
+          <div class="form-group form-group--full">
+            <p style="font-size: var(--text-sm); font-weight: var(--font-bold); color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 2px solid var(--color-primary-light); padding-bottom: var(--space-2);">
+              Personal Information
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="first_name">First Name <span class="required">*</span></label>
+            <input class="form-input" type="text" id="first_name" name="first_name" placeholder="Jane" required autocomplete="given-name" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="last_name">Last Name <span class="required">*</span></label>
+            <input class="form-input" type="text" id="last_name" name="last_name" placeholder="Smith" required autocomplete="family-name" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="app_email">Email Address <span class="required">*</span></label>
+            <input class="form-input" type="email" id="app_email" name="app_email" placeholder="jane@email.com" required autocomplete="email" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="app_phone">Phone Number <span class="required">*</span></label>
+            <input class="form-input" type="tel" id="app_phone" name="app_phone" placeholder="(612) 555-0100" required autocomplete="tel" />
+          </div>
+
+          <div class="form-group form-group--full">
+            <label class="form-label" for="address">Street Address</label>
+            <input class="form-input" type="text" id="address" name="address" placeholder="123 Main St, Minneapolis, MN 55408" autocomplete="street-address" />
+          </div>
+
+
+          <!-- SECTION: Position -->
+          <div class="form-group form-group--full" style="margin-top: var(--space-4);">
+            <p style="font-size: var(--text-sm); font-weight: var(--font-bold); color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 2px solid var(--color-primary-light); padding-bottom: var(--space-2);">
+              Position &amp; Availability
+            </p>
+          </div>
+
+          <div class="form-group form-group--full">
+            <label class="form-label" for="position">Position Applying For <span class="required">*</span></label>
+            <select class="form-select" id="position" name="position" required>
+              <option value="">— Select a position —</option>
+              <option value="pca">Home Care Aide (PCA)</option>
+              <option value="rn">Registered Nurse (RN)</option>
+              <option value="lpn">Licensed Practical Nurse (LPN)</option>
+              <option value="companion">Companion / Support Worker</option>
+              <option value="overnight">Overnight / Night Supervision Staff</option>
+              <option value="other">Other — Please specify below</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="employment_type">Desired Employment Type <span class="required">*</span></label>
+            <select class="form-select" id="employment_type" name="employment_type" required>
+              <option value="">— Select —</option>
+              <option value="full-time">Full-Time</option>
+              <option value="part-time">Part-Time</option>
+              <option value="on-call">On-Call / PRN</option>
+              <option value="open">Open to Any</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="start_date">Earliest Available Start Date</label>
+            <input class="form-input" type="date" id="start_date" name="start_date" />
+          </div>
+
+          <div class="form-group form-group--full">
+            <label class="form-label" for="availability">Days / Hours Available</label>
+            <input class="form-input" type="text" id="availability" name="availability" placeholder="e.g. Monday–Friday, mornings; weekends available" />
+          </div>
+
+          <div class="form-group form-group--full">
+            <label class="form-label" for="work_auth">Are you legally authorized to work in the United States? <span class="required">*</span></label>
+            <select class="form-select" id="work_auth" name="work_auth" required>
+              <option value="">— Select —</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+
+
+          <!-- SECTION: Experience & Education -->
+          <div class="form-group form-group--full" style="margin-top: var(--space-4);">
+            <p style="font-size: var(--text-sm); font-weight: var(--font-bold); color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 2px solid var(--color-primary-light); padding-bottom: var(--space-2);">
+              Experience &amp; Education
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="years_experience">Years of Home Care / Healthcare Experience</label>
+            <select class="form-select" id="years_experience" name="years_experience">
+              <option value="">— Select —</option>
+              <option value="0">No prior experience</option>
+              <option value="less-1">Less than 1 year</option>
+              <option value="1-2">1–2 years</option>
+              <option value="3-5">3–5 years</option>
+              <option value="5+">5+ years</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="education">Highest Level of Education</label>
+            <select class="form-select" id="education" name="education">
+              <option value="">— Select —</option>
+              <option value="hs">High School Diploma / GED</option>
+              <option value="some-college">Some College</option>
+              <option value="associate">Associate Degree</option>
+              <option value="bachelor">Bachelor's Degree</option>
+              <option value="graduate">Graduate Degree</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group form-group--full">
+            <label class="form-label" for="licenses_certs">Current Licenses or Certifications</label>
+            <input class="form-input" type="text" id="licenses_certs" name="licenses_certs" placeholder="e.g. RN License, CNA Certification, CPR/First Aid, PCA Training" />
+            <span class="form-hint">List all relevant licenses, certifications, or training credentials.</span>
+          </div>
+
+          <div class="form-group form-group--full">
+            <label class="form-label" for="work_experience">Relevant Work Experience</label>
+            <textarea class="form-textarea" id="work_experience" name="work_experience" placeholder="Briefly describe your relevant work history, including employer names, roles, and responsibilities..." style="min-height: 130px;"></textarea>
+          </div>
+
+
+          <!-- SECTION: Background -->
+          <div class="form-group form-group--full" style="margin-top: var(--space-4);">
+            <p style="font-size: var(--text-sm); font-weight: var(--font-bold); color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 2px solid var(--color-primary-light); padding-bottom: var(--space-2);">
+              Background &amp; References
+            </p>
+          </div>
+
+          <div class="form-group form-group--full">
+            <label class="form-label" for="background_check">Are you willing to consent to a background check? <span class="required">*</span></label>
+            <select class="form-select" id="background_check" name="background_check" required>
+              <option value="">— Select —</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+            <span class="form-hint">A background check is required for all positions working directly with clients.</span>
+          </div>
+
+          <div class="form-group form-group--full">
+            <label class="form-label" for="ref1_name">Reference 1 — Name &amp; Contact</label>
+            <input class="form-input" type="text" id="ref1_name" name="ref1_name" placeholder="Full Name, Phone or Email, Relationship" />
+          </div>
+
+          <div class="form-group form-group--full">
+            <label class="form-label" for="ref2_name">Reference 2 — Name &amp; Contact</label>
+            <input class="form-input" type="text" id="ref2_name" name="ref2_name" placeholder="Full Name, Phone or Email, Relationship" />
+          </div>
+
+
+          <!-- SECTION: Additional Info -->
+          <div class="form-group form-group--full" style="margin-top: var(--space-4);">
+            <p style="font-size: var(--text-sm); font-weight: var(--font-bold); color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 2px solid var(--color-primary-light); padding-bottom: var(--space-2);">
+              Additional Information
+            </p>
+          </div>
+
+          <div class="form-group form-group--full">
+            <label class="form-label" for="why_signia">Why Do You Want to Work at Signia Home Care?</label>
+            <textarea class="form-textarea" id="why_signia" name="why_signia" placeholder="Tell us a little about yourself and why you're interested in joining our team..." style="min-height: 110px;"></textarea>
+          </div>
+
+          <div class="form-group form-group--full">
+            <label class="form-label" for="resume">Resume (optional)</label>
+            <input class="form-input" type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" style="padding: 0.6rem 1rem; cursor: pointer;" />
+            <span class="form-hint">Accepted formats: PDF, DOC, DOCX. Max 5MB. <!-- TODO: Configure file upload storage (local disk or cloud like AWS S3) --></span>
+          </div>
+
+
+          <!-- Acknowledgment -->
+          <div class="form-privacy form-group--full" style="margin-top: var(--space-4);">
+            <strong>Applicant Acknowledgment:</strong> By submitting this application, I certify
+            that the information provided is true and complete to the best of my knowledge.
+            I understand that false or misleading information may result in disqualification
+            from employment or termination. I consent to a background check if offered a
+            position. Signia Home Care is an equal opportunity employer.
+          </div>
+
+          <div class="form-group form-group--full">
+            <button type="submit" class="btn btn--primary btn--lg" style="width: 100%; justify-content: center;">
+              Submit Application →
+            </button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CTA BANNER
+     ============================================================ -->
+<section class="cta-banner" aria-labelledby="careers-cta-title">
+  <div class="container">
+    <div class="cta-banner__inner">
+      <h2 class="cta-banner__title" id="careers-cta-title">
+        Questions About Working with Us?
+      </h2>
+      <p class="cta-banner__text">
+        Reach out to our team — we'd be happy to answer any questions you have
+        about open positions, requirements, or what it's like to work at
+        Signia Home Care.
+      </p>
+      <div class="btn-group" style="justify-content: center;">
+        <a class="btn btn--accent btn--xl" href="mailto:{{ business.email }}">
+          ✉️ Email Us
+        </a>
+        <a class="btn btn--outline-light btn--xl" href="tel:{{ business.phone|replace(' ','') }}">
+          📞 {{ business.phone }}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

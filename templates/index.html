@@ -1,0 +1,702 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container">
+    <div class="hero__inner">
+
+      <div class="hero__content">
+        <span class="hero__label">
+          ✦ Minnesota Home Care — State Certified
+        </span>
+
+        <h1 class="hero__title" id="hero-title">
+          Care You Can Trust,<br>
+          <span>Delivered Right at Home.</span>
+        </h1>
+
+        <p class="hero__subtitle">
+          Signia Home Care provides compassionate, personalized home care services
+          for individuals and families across Minneapolis and the Twin Cities.
+          We're here to help you or your loved one live with safety, dignity,
+          and independence — in the place you call home.
+        </p>
+
+        <div class="hero__cta btn-group">
+          <a class="btn btn--accent btn--lg" href="{{ url_for('referral') }}">
+            Make a Referral
+          </a>
+          <a class="btn btn--outline-light btn--lg" href="{{ url_for('contact') }}">
+            Contact Us
+          </a>
+        </div>
+
+        <div class="hero__trust">
+          <span class="trust-badge">✓ Skilled Home Care Services</span>
+          <span class="trust-badge">✓ Daily Living Support</span>
+          <span class="trust-badge">✓ State of Minnesota Certified</span>
+        </div>
+      </div>
+
+      <div class="hero__image" aria-hidden="true">
+        <img
+          src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=900&q=80"
+          alt="A caregiver actively helping an elderly client at home"
+          width="900"
+          loading="eager"
+        />
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     INTRO / WHO WE ARE
+     ============================================================ -->
+<section class="section section--gray" aria-labelledby="intro-title">
+  <div class="container">
+    <div class="two-col two-col--60-40">
+
+      <div>
+        <span class="section-label">Who We Are</span>
+        <h2 class="section-title" id="intro-title">
+          A Minnesota Home Care Team That Truly Cares
+        </h2>
+        <p class="lead">
+          At Signia Home Care, we believe that everyone deserves to live with
+          comfort, dignity, and independence — no matter their age, ability, or
+          circumstance. We are a licensed Minnesota home care provider serving
+          Minneapolis and surrounding Twin Cities communities.
+        </p>
+        <p>
+          Our team provides a wide range of services — from skilled nursing
+          and therapy to personal care, companionship, and help around the
+          house. Whether you're recovering from an illness, managing a health
+          condition, or simply need a helping hand at home, we're here for you.
+        </p>
+        <p>
+          We are certified by the State of Minnesota to provide both
+          <strong>skilled home care</strong> and <strong>daily living support</strong>,
+          so we can help with a broad range of needs — all under one roof.
+        </p>
+        <div class="btn-group mt-6">
+          <a class="btn btn--primary" href="{{ url_for('about') }}">Our Story</a>
+          <a class="btn btn--outline" href="{{ url_for('services') }}">Explore Services</a>
+        </div>
+      </div>
+
+      <div>
+        <!-- SVG Illustration: Caregiver visiting client at home -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 380" role="img"
+             aria-label="A caregiver visiting a senior client at home"
+             style="width:100%; border-radius: var(--radius-2xl); display:block;">
+          <defs>
+            <linearGradient id="bg-home" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#EFF6FF"/>
+              <stop offset="100%" stop-color="#ECFDF5"/>
+            </linearGradient>
+            <linearGradient id="g-chair" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#FDE68A"/>
+              <stop offset="100%" stop-color="#FCD34D"/>
+            </linearGradient>
+            <linearGradient id="g-scrub" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#3B82F6"/>
+              <stop offset="100%" stop-color="#1D4ED8"/>
+            </linearGradient>
+            <radialGradient id="g-glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#F97316" stop-opacity="0.25"/>
+              <stop offset="100%" stop-color="#F97316" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+
+          <!-- Background -->
+          <rect width="480" height="380" rx="24" fill="url(#bg-home)"/>
+
+          <!-- Subtle background circles -->
+          <circle cx="420" cy="60" r="90" fill="#DBEAFE" opacity="0.4"/>
+          <circle cx="60" cy="320" r="70" fill="#D1FAE5" opacity="0.4"/>
+
+          <!-- Room wall -->
+          <rect x="0" y="80" width="480" height="220" fill="#F8FAFC"/>
+          <!-- Floor -->
+          <rect x="0" y="300" width="480" height="80" rx="0" fill="#E2E8F0"/>
+          <!-- Floor highlight -->
+          <rect x="0" y="295" width="480" height="12" fill="#CBD5E1"/>
+          <!-- Rug -->
+          <ellipse cx="240" cy="325" rx="170" ry="22" fill="#BFDBFE" opacity="0.6"/>
+          <ellipse cx="240" cy="325" rx="145" ry="16" fill="#93C5FD" opacity="0.35"/>
+
+          <!-- Window on wall -->
+          <rect x="30" y="100" width="130" height="150" rx="10" fill="#BFDBFE"/>
+          <rect x="34" y="104" width="122" height="142" rx="7" fill="#DBEAFE"/>
+          <!-- Sky in window -->
+          <rect x="34" y="104" width="122" height="90" rx="7" fill="#BAE6FD"/>
+          <!-- Tree/outside -->
+          <circle cx="115" cy="165" r="32" fill="#86EFAC"/>
+          <circle cx="97"  cy="172" r="22" fill="#4ADE80"/>
+          <rect x="108" y="190" width="8" height="56" fill="#92400E"/>
+          <!-- Window frame -->
+          <rect x="30"  y="100" width="130" height="8"   rx="4" fill="#94A3B8"/>
+          <rect x="30"  y="100" width="8"   height="150" rx="4" fill="#94A3B8"/>
+          <rect x="152" y="100" width="8"   height="150" rx="4" fill="#94A3B8"/>
+          <rect x="30"  y="242" width="130" height="8"   rx="4" fill="#94A3B8"/>
+          <rect x="91"  y="100" width="8"   height="150"        fill="#94A3B8"/>
+          <rect x="30"  y="171" width="130" height="8"          fill="#94A3B8"/>
+          <!-- Curtains -->
+          <path d="M30,100 Q44,145 38,250" stroke="#93C5FD" stroke-width="14" fill="none" stroke-linecap="round"/>
+          <path d="M160,100 Q146,145 152,250" stroke="#93C5FD" stroke-width="14" fill="none" stroke-linecap="round"/>
+
+          <!-- Armchair -->
+          <rect x="270" y="210" width="145" height="90"  rx="20" fill="url(#g-chair)"/>
+          <rect x="262" y="255" width="162" height="55"  rx="14" fill="#FCD34D"/>
+          <rect x="254" y="238" width="26"  height="72"  rx="10" fill="#F59E0B"/>
+          <rect x="404" y="238" width="26"  height="72"  rx="10" fill="#F59E0B"/>
+          <rect x="272" y="302" width="12"  height="20"  rx="4"  fill="#92400E"/>
+          <rect x="400" y="302" width="12"  height="20"  rx="4"  fill="#92400E"/>
+
+          <!-- Senior in chair -->
+          <rect x="282" y="267" width="120" height="36" rx="10" fill="#BFDBFE"/>
+          <rect x="292" y="238" width="100" height="55" rx="14" fill="#E0F2FE"/>
+          <!-- Head -->
+          <circle cx="342" cy="222" r="28" fill="#FCA5A5"/>
+          <!-- White hair -->
+          <path d="M314,214 Q342,199 370,214" fill="#F1F5F9"/>
+          <circle cx="329" cy="208" r="9" fill="#F1F5F9"/>
+          <circle cx="342" cy="205" r="9" fill="#F1F5F9"/>
+          <circle cx="355" cy="208" r="9" fill="#F1F5F9"/>
+          <!-- Happy eyes (closed/squinting) -->
+          <path d="M330,222 Q335,227 340,222" stroke="#475569" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M344,222 Q349,227 354,222" stroke="#475569" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <!-- Smile -->
+          <path d="M330,232 Q342,242 354,232" stroke="#BE185D" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <!-- Arm on rest -->
+          <path d="M292,258 Q268,260 259,256" stroke="#E0F2FE" stroke-width="14" stroke-linecap="round" fill="none"/>
+          <circle cx="257" cy="255" r="11" fill="#FCA5A5"/>
+
+          <!-- Caregiver (standing left of chair) -->
+          <!-- Shoes -->
+          <ellipse cx="183" cy="308" rx="16" ry="8" fill="#1E293B"/>
+          <ellipse cx="209" cy="309" rx="16" ry="8" fill="#1E293B"/>
+          <!-- Pants -->
+          <rect x="176" y="268" width="24" height="46" rx="7" fill="#334155"/>
+          <rect x="200" y="268" width="24" height="46" rx="7" fill="#334155"/>
+          <!-- Scrub top -->
+          <rect x="166" y="188" width="68" height="92" rx="16" fill="url(#g-scrub)"/>
+          <!-- Pocket + pen -->
+          <rect x="174" y="210" width="22" height="16" rx="4" fill="#1D4ED8"/>
+          <rect x="191" y="207" width="4"  height="20" rx="2" fill="#FCD34D"/>
+          <!-- Name badge -->
+          <rect x="193" y="208" width="24" height="14" rx="3" fill="white"/>
+          <rect x="195" y="210" width="20" height="3" rx="1" fill="#CBD5E1"/>
+          <rect x="195" y="215" width="14" height="2" rx="1" fill="#E2E8F0"/>
+          <!-- Right arm reaching toward client -->
+          <path d="M234,215 Q268,235 278,258" stroke="#3B82F6" stroke-width="20" stroke-linecap="round" fill="none"/>
+          <circle cx="279" cy="260" r="13" fill="#FBBF24"/>
+          <!-- Left arm down -->
+          <path d="M166,215 Q148,238 143,258" stroke="#3B82F6" stroke-width="18" stroke-linecap="round" fill="none"/>
+          <circle cx="141" cy="260" r="12" fill="#FBBF24"/>
+          <!-- Head -->
+          <circle cx="200" cy="170" r="30" fill="#FBBF24"/>
+          <!-- Hair (dark brown) -->
+          <path d="M170,163 Q200,146 230,163" fill="#92400E"/>
+          <path d="M170,163 Q173,150 184,154" fill="#92400E"/>
+          <path d="M230,163 Q227,150 216,154" fill="#92400E"/>
+          <!-- Eyes -->
+          <circle cx="191" cy="170" r="3.5" fill="#1E293B"/>
+          <circle cx="209" cy="170" r="3.5" fill="#1E293B"/>
+          <!-- Smile -->
+          <path d="M190,182 Q200,192 210,182" stroke="#92400E" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+          <!-- Glow behind heart -->
+          <circle cx="240" cy="248" r="36" fill="url(#g-glow)"/>
+          <!-- Heart between them -->
+          <path d="M240,236 C237,229 225,229 225,238 C225,244 231,250 240,258 C249,250 255,244 255,238 C255,229 243,229 240,236 Z" fill="#F97316"/>
+
+          <!-- Side table -->
+          <rect x="195" y="286" width="62" height="10" rx="5" fill="#92400E"/>
+          <rect x="206" y="296" width="9"  height="24" rx="3" fill="#78350F"/>
+          <rect x="238" y="296" width="9"  height="24" rx="3" fill="#78350F"/>
+          <!-- Mug -->
+          <rect x="210" y="268" width="26" height="22" rx="6" fill="white"/>
+          <path d="M236,274 Q246,274 246,279 Q246,284 236,284" stroke="#E2E8F0" stroke-width="3.5" fill="none"/>
+          <rect x="212" y="271" width="22" height="7" rx="3" fill="#BAE6FD"/>
+
+          <!-- Plant (top-right corner) -->
+          <rect x="436" y="278" width="14" height="30" rx="4" fill="#6D28D9"/>
+          <rect x="428" y="258" width="30" height="26" rx="6" fill="#7C3AED"/>
+          <circle cx="443" cy="248" r="22" fill="#16A34A"/>
+          <circle cx="426" cy="258" r="17" fill="#15803D"/>
+          <circle cx="460" cy="255" r="17" fill="#15803D"/>
+          <circle cx="443" cy="232" r="13" fill="#4ADE80"/>
+          <!-- Leaf veins -->
+          <line x1="443" y1="248" x2="435" y2="238" stroke="#166534" stroke-width="1.5" opacity="0.6"/>
+          <line x1="443" y1="248" x2="451" y2="238" stroke="#166534" stroke-width="1.5" opacity="0.6"/>
+
+          <!-- Decorative dots -->
+          <circle cx="455" cy="88"  r="6" fill="#2563EB" opacity="0.18"/>
+          <circle cx="472" cy="102" r="4" fill="#0E7490" opacity="0.15"/>
+          <circle cx="442" cy="104" r="5" fill="#2563EB" opacity="0.12"/>
+          <circle cx="32"  cy="78"  r="5" fill="#0E7490" opacity="0.15"/>
+          <circle cx="48"  cy="65"  r="3" fill="#2563EB" opacity="0.12"/>
+        </svg>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     WHY FAMILIES CHOOSE US
+     ============================================================ -->
+<section class="section" aria-labelledby="why-title">
+  <div class="container">
+
+    <div class="section-header section-header--center">
+      <span class="section-label">Why Signia</span>
+      <h2 class="section-title" id="why-title">
+        Why Families Choose Signia Home Care
+      </h2>
+      <p class="section-subtitle">
+        We've built our services around what matters most to Minnesota families —
+        trust, compassion, reliability, and respect for each person's unique needs.
+      </p>
+    </div>
+
+    <div class="feature-list">
+
+      <div class="feature-item">
+        <div class="feature-item__icon" aria-hidden="true">🏅</div>
+        <div>
+          <h3 class="feature-item__title">State Certified &amp; Accountable</h3>
+          <p class="feature-item__text">
+            We are certified by the State of Minnesota to provide both skilled
+            home care and daily living support — so you know we meet high standards
+            for safety and quality.
+          </p>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-item__icon" aria-hidden="true">💙</div>
+        <div>
+          <h3 class="feature-item__title">Genuinely Compassionate Care</h3>
+          <p class="feature-item__text">
+            We don't just show up — we care. Every member of our team is chosen
+            for their clinical skill and their genuine warmth. We treat every
+            client as if they were family.
+          </p>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-item__icon" aria-hidden="true">🎯</div>
+        <div>
+          <h3 class="feature-item__title">Personalized, Individualized Plans</h3>
+          <p class="feature-item__text">
+            No two people are alike. We take the time to understand your specific
+            needs, preferences, and goals, and build a care plan that fits your
+            life — not the other way around.
+          </p>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-item__icon" aria-hidden="true">🤝</div>
+        <div>
+          <h3 class="feature-item__title">A Team You Can Rely On</h3>
+          <p class="feature-item__text">
+            Consistency matters in home care. We work hard to ensure you have
+            familiar, dependable caregivers who show up when they say they will
+            and provide the care you count on.
+          </p>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-item__icon" aria-hidden="true">🌿</div>
+        <div>
+          <h3 class="feature-item__title">Dignity and Independence First</h3>
+          <p class="feature-item__text">
+            We believe in helping people do as much as they can for themselves,
+            as safely as possible. Our care supports independence — it never
+            takes it away.
+          </p>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-item__icon" aria-hidden="true">📍</div>
+        <div>
+          <h3 class="feature-item__title">Rooted in the Twin Cities Community</h3>
+          <p class="feature-item__text">
+            Based in Minneapolis, we serve communities throughout the Twin Cities
+            metro — including Plymouth, Edina, Bloomington, St. Louis Park, and
+            many more neighborhoods we're proud to call home.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SERVICES PREVIEW
+     ============================================================ -->
+<section class="section section--gradient" aria-labelledby="services-title">
+  <div class="container">
+
+    <div class="section-header section-header--center">
+      <span class="section-label">Our Services</span>
+      <h2 class="section-title" id="services-title">
+        Comprehensive Care, Every Step of the Way
+      </h2>
+      <p class="section-subtitle">
+        From skilled nursing and therapy to personal care and companionship,
+        we offer a wide range of home care services tailored to each
+        individual's needs.
+      </p>
+    </div>
+
+    <div class="grid-4" style="margin-bottom: var(--space-10);">
+      {% for svc in services_preview %}
+      <a class="service-mini-card" href="{{ url_for('service_detail', slug=svc.slug) }}">
+        <span class="service-mini-card__icon" aria-hidden="true">{{ svc.icon }}</span>
+        <span class="service-mini-card__name">{{ svc.name }}</span>
+        <span class="service-mini-card__short">{{ svc.short }}</span>
+      </a>
+      {% endfor %}
+    </div>
+
+    <div class="text-center">
+      <a class="btn btn--primary btn--lg" href="{{ url_for('services') }}">
+        View All Services →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     COMPASSIONATE CARE AT HOME
+     ============================================================ -->
+<section class="section" aria-labelledby="compassionate-title">
+  <div class="container">
+    <div class="two-col two-col--40-60">
+
+      <div>
+        <!-- SVG Illustration: Hands of care with heart -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 400" role="img"
+             aria-label="Two hands coming together around a heart, representing compassionate care"
+             style="width:100%; border-radius: var(--radius-2xl); display:block;">
+          <defs>
+            <linearGradient id="bg-care" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#FFF7ED"/>
+              <stop offset="100%" stop-color="#FEF3C7"/>
+            </linearGradient>
+            <linearGradient id="g-hand-l" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#2563EB"/>
+              <stop offset="100%" stop-color="#1D4ED8"/>
+            </linearGradient>
+            <linearGradient id="g-hand-r" x1="1" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#0E7490"/>
+              <stop offset="100%" stop-color="#0C4A6E"/>
+            </linearGradient>
+            <linearGradient id="g-heart" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#FB923C"/>
+              <stop offset="100%" stop-color="#EF4444"/>
+            </linearGradient>
+            <radialGradient id="glow-heart" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#F97316" stop-opacity="0.22"/>
+              <stop offset="100%" stop-color="#F97316" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="glow-outer" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#FED7AA" stop-opacity="0.35"/>
+              <stop offset="100%" stop-color="#FED7AA" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+
+          <!-- Background -->
+          <rect width="480" height="400" rx="24" fill="url(#bg-care)"/>
+
+          <!-- Decorative rings -->
+          <circle cx="240" cy="200" r="160" fill="url(#glow-outer)"/>
+          <circle cx="240" cy="200" r="120" fill="url(#glow-heart)"/>
+
+          <!-- Background dot pattern -->
+          <circle cx="48"  cy="48"  r="5" fill="#FED7AA" opacity="0.5"/>
+          <circle cx="90"  cy="35"  r="3" fill="#FCA5A5" opacity="0.4"/>
+          <circle cx="30"  cy="90"  r="4" fill="#FED7AA" opacity="0.4"/>
+          <circle cx="432" cy="48"  r="5" fill="#FED7AA" opacity="0.5"/>
+          <circle cx="450" cy="90"  r="3" fill="#FCA5A5" opacity="0.4"/>
+          <circle cx="390" cy="35"  r="4" fill="#FED7AA" opacity="0.4"/>
+          <circle cx="48"  cy="352" r="5" fill="#FED7AA" opacity="0.5"/>
+          <circle cx="30"  cy="310" r="3" fill="#FCA5A5" opacity="0.4"/>
+          <circle cx="432" cy="352" r="5" fill="#FED7AA" opacity="0.5"/>
+          <circle cx="450" cy="310" r="3" fill="#FCA5A5" opacity="0.4"/>
+
+          <!-- Stars / sparkles -->
+          <g opacity="0.55">
+            <path d="M80,155 L84,165 L94,169 L84,173 L80,183 L76,173 L66,169 L76,165 Z"  fill="#FBBF24"/>
+            <path d="M400,155 L403,163 L411,166 L403,169 L400,177 L397,169 L389,166 L397,163 Z" fill="#FBBF24"/>
+            <path d="M130,72  L133,80  L141,83  L133,86  L130,94  L127,86  L119,83  L127,80  Z"  fill="#FB923C"/>
+            <path d="M350,72  L353,80  L361,83  L353,86  L350,94  L347,86  L339,83  L347,80  Z"  fill="#FB923C"/>
+            <path d="M78,290  L81,298  L89,301  L81,304  L78,312  L75,304  L67,301  L75,298  Z"  fill="#FBBF24"/>
+            <path d="M402,290 L405,298 L413,301 L405,304 L402,312 L399,304 L391,301 L399,298 Z" fill="#FBBF24"/>
+          </g>
+
+          <!-- Left hand (caregiver — blue scrub sleeve) -->
+          <rect x="22" y="230" width="130" height="90" rx="24" fill="url(#g-hand-l)"/>
+          <rect x="22" y="272" width="130" height="14" rx="0" fill="#1D4ED8"/>
+          <rect x="55" y="185" width="100" height="90" rx="20" fill="#FBBF24"/>
+          <rect x="140" y="172" width="32" height="56" rx="14" fill="#FBBF24"/>
+          <rect x="140" y="166" width="28" height="52" rx="13" fill="#FBBF24"/>
+          <rect x="140" y="162" width="26" height="50" rx="12" fill="#FBBF24"/>
+          <ellipse cx="68" cy="188" rx="20" ry="28" fill="#FBBF24" transform="rotate(-25 68 188)"/>
+          <path d="M148,185 Q153,188 148,191" stroke="#F59E0B" stroke-width="1.5" fill="none"/>
+          <path d="M148,195 Q153,198 148,201" stroke="#F59E0B" stroke-width="1.5" fill="none"/>
+
+          <!-- Right hand (family — teal sleeve) -->
+          <rect x="328" y="230" width="130" height="90" rx="24" fill="url(#g-hand-r)"/>
+          <rect x="328" y="272" width="130" height="14" fill="#0C4A6E"/>
+          <rect x="325" y="185" width="100" height="90" rx="20" fill="#FCA5A5"/>
+          <rect x="308" y="172" width="32" height="56" rx="14" fill="#FCA5A5"/>
+          <rect x="312" y="166" width="28" height="52" rx="13" fill="#FCA5A5"/>
+          <rect x="314" y="162" width="26" height="50" rx="12" fill="#FCA5A5"/>
+          <ellipse cx="412" cy="188" rx="20" ry="28" fill="#FCA5A5" transform="rotate(25 412 188)"/>
+          <path d="M332,185 Q327,188 332,191" stroke="#F87171" stroke-width="1.5" fill="none"/>
+          <path d="M332,195 Q327,198 332,201" stroke="#F87171" stroke-width="1.5" fill="none"/>
+
+          <!-- Heart glow rings -->
+          <circle cx="240" cy="185" r="62" fill="#F97316" opacity="0.08"/>
+          <circle cx="240" cy="185" r="48" fill="#F97316" opacity="0.10"/>
+
+          <!-- Central Heart -->
+          <path d="M240,158 C235,146 215,146 215,162 C215,174 226,185 240,200 C254,185 265,174 265,162 C265,146 245,146 240,158 Z"
+                fill="url(#g-heart)" filter="drop-shadow(0 4px 12px rgba(249,115,22,0.45))"/>
+          <ellipse cx="228" cy="163" rx="7" ry="5" fill="white" opacity="0.35" transform="rotate(-20 228 163)"/>
+
+          <!-- Tag line -->
+          <text x="240" y="348" text-anchor="middle" font-family="Georgia, serif" font-size="15"
+                fill="#92400E" font-style="italic" opacity="0.75">
+            Compassionate Care, Every Day
+          </text>
+        </svg>
+      </div>
+
+      <div>
+        <span class="section-label">Our Approach</span>
+        <h2 class="section-title" id="compassionate-title">
+          Compassionate Care at Home — The Way It Should Be
+        </h2>
+        <p>
+          We know that inviting a caregiver into your home is an act of trust.
+          That's why everything we do is built around earning and keeping that
+          trust — through kindness, skill, consistency, and respect.
+        </p>
+        <p>
+          Our caregivers don't just complete tasks. They listen. They learn what
+          makes each person comfortable. They notice the small things. And they
+          show up, day after day, with genuine care for the individuals they serve.
+        </p>
+        <p>
+          Home is where healing happens best. It's where people feel most
+          themselves — surrounded by familiar things, routines, and the people
+          they love. We are honored to be part of that environment and to
+          support families in keeping their loved ones safe and well at home.
+        </p>
+        <ul class="check-list mt-6">
+          <li>Skilled, trained, and compassionate caregivers</li>
+          <li>Individualized care plans built around your needs</li>
+          <li>Clear communication with families and healthcare teams</li>
+          <li>Unwavering commitment to safety and dignity</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     WHO WE SERVE
+     ============================================================ -->
+<section class="section section--gray" aria-labelledby="who-title">
+  <div class="container">
+
+    <div class="section-header section-header--center">
+      <span class="section-label">Who We Serve</span>
+      <h2 class="section-title" id="who-title">
+        Serving Individuals and Families Across the Twin Cities
+      </h2>
+      <p class="section-subtitle">
+        Signia Home Care serves adults of all ages and abilities throughout
+        Minneapolis and the surrounding metro area.
+      </p>
+    </div>
+
+    <div class="grid-3">
+
+      <div class="card">
+        <span class="card__icon" aria-hidden="true">👴</span>
+        <h3 class="card__title">Older Adults</h3>
+        <p class="card__text">
+          Seniors who want to age in place comfortably and safely, with the
+          right support to maintain independence, dignity, and quality of life
+          at home.
+        </p>
+      </div>
+
+      <div class="card">
+        <span class="card__icon" aria-hidden="true">♿</span>
+        <h3 class="card__title">Adults with Disabilities</h3>
+        <p class="card__text">
+          Individuals living with physical, cognitive, or developmental
+          disabilities who want community-based support to live as
+          independently as possible.
+        </p>
+      </div>
+
+      <div class="card">
+        <span class="card__icon" aria-hidden="true">🏠</span>
+        <h3 class="card__title">Individuals Recovering at Home</h3>
+        <p class="card__text">
+          People recovering from surgery, hospitalization, or illness who need
+          skilled support to heal safely and return to full participation in
+          their lives.
+        </p>
+      </div>
+
+      <div class="card">
+        <span class="card__icon" aria-hidden="true">💊</span>
+        <h3 class="card__title">Those Managing Chronic Conditions</h3>
+        <p class="card__text">
+          Individuals living with chronic health conditions such as diabetes,
+          COPD, heart disease, or neurological conditions who benefit from
+          ongoing home-based clinical support.
+        </p>
+      </div>
+
+      <div class="card">
+        <span class="card__icon" aria-hidden="true">👨‍👩‍👧</span>
+        <h3 class="card__title">Families and Caregivers</h3>
+        <p class="card__text">
+          Family caregivers who need support, relief, or backup — including
+          respite services that give caregivers the rest they need while their
+          loved one continues to receive excellent care.
+        </p>
+      </div>
+
+      <div class="card">
+        <span class="card__icon" aria-hidden="true">🏥</span>
+        <h3 class="card__title">Referrals from Healthcare Partners</h3>
+        <p class="card__text">
+          Hospitals, clinics, social workers, case managers, and community
+          organizations who want to connect their clients with trusted,
+          home care services in the Twin Cities.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     REFERRAL CTA BANNER
+     ============================================================ -->
+<section class="cta-banner" aria-labelledby="cta-title">
+  <div class="container">
+    <div class="cta-banner__inner">
+      <h2 class="cta-banner__title" id="cta-title">
+        Ready to Connect Someone with Quality Home Care?
+      </h2>
+      <p class="cta-banner__text">
+        Whether you're a social worker, case manager, healthcare provider,
+        or a family member — we make referrals simple and responsive.
+        Our team will follow up quickly to get the right care started.
+      </p>
+      <div class="btn-group" style="justify-content: center;">
+        <a class="btn btn--accent btn--xl" href="{{ url_for('referral') }}">
+          Make a Referral Today
+        </a>
+        <a class="btn btn--outline-light btn--xl" href="{{ url_for('contact') }}">
+          Ask Us a Question
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     LOCATION / CONTACT STRIP
+     ============================================================ -->
+<section class="section section--gray" aria-labelledby="location-title">
+  <div class="container">
+    <div class="two-col">
+
+      <div>
+        <span class="section-label">Find Us</span>
+        <h2 class="section-title" id="location-title">
+          Serving Minneapolis and the Twin Cities
+        </h2>
+        <p>
+          Our office is located at <strong>{{ business.address }}</strong>.
+          We provide in-home services across Minneapolis, Plymouth, Edina,
+          Bloomington, Eden Prairie, Minnetonka, Richfield, St. Louis Park,
+          St. Paul, and the broader Twin Cities metro area.
+        </p>
+        <div style="margin-top: var(--space-6); display: flex; flex-direction: column; gap: var(--space-3);">
+          <div style="display: flex; align-items: center; gap: var(--space-3);">
+            <span style="font-size: 1.25rem;">📞</span>
+            <a href="tel:{{ business.phone|replace(' ','') }}" style="font-weight: var(--font-semi); font-size: var(--text-lg); color: var(--color-primary);">
+              {{ business.phone }}
+            </a>
+          </div>
+          <div style="display: flex; align-items: center; gap: var(--space-3);">
+            <span style="font-size: 1.25rem;">✉️</span>
+            <a href="mailto:{{ business.email }}" style="font-weight: var(--font-medium); color: var(--color-primary);">
+              {{ business.email }}
+            </a>
+          </div>
+          <div style="display: flex; align-items: center; gap: var(--space-3);">
+            <span style="font-size: 1.25rem;">🕐</span>
+            <span>{{ business.hours }}</span>
+          </div>
+        </div>
+        <div class="btn-group mt-6">
+          <a class="btn btn--primary" href="{{ url_for('contact') }}">Contact Us</a>
+          <a class="btn btn--outline" href="{{ url_for('referral') }}">Make a Referral</a>
+        </div>
+      </div>
+
+      <div>
+        <div style="border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl);">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2823.9!2d-93.29!3d44.94!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b332a1e4d3c0b7%3A0x0!2s3030+Holmes+Ave+S%2C+Minneapolis%2C+MN+55408!5e0!3m2!1sen!2sus!4v1"
+            width="100%"
+            height="340"
+            style="border:0; display:block;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Signia Home Care — 3030 Holmes Ave S, Minneapolis, MN 55408">
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}

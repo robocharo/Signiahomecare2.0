@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- PAGE HERO -->
+<section class="page-hero" aria-labelledby="services-hero-title">
+  <div class="container">
+    <div class="page-hero__inner">
+      <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+        <a href="{{ url_for('index') }}">Home</a>
+        <span aria-hidden="true">›</span>
+        <span aria-current="page">Our Services</span>
+      </nav>
+      <h1 class="page-hero__title" id="services-hero-title">
+        Our Home Care Services
+      </h1>
+      <p class="page-hero__subtitle">
+        We offer a wide range of home care services — from skilled nursing and
+        therapy to personal care, companionship, and everyday household help.
+        Whatever you need, we're here to help.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     INTRO
+     ============================================================ -->
+<section class="section section--gray" aria-labelledby="intro-title">
+  <div class="container" style="max-width: var(--max-width-narrow);">
+    <span class="section-label">How We Help</span>
+    <h2 class="section-title" id="intro-title">
+      Personalized Care for Every Situation
+    </h2>
+    <p class="lead">
+      No two people need the same kind of help — and we never treat anyone
+      like a checkbox. We take the time to understand your situation and
+      build a plan that fits your life.
+    </p>
+    <p>
+      Whether you need a nurse to visit a few times a week, someone to help
+      with bathing and meals every day, a friendly companion, or overnight
+      supervision — we can help. Services are tailored to each person based
+      on their needs, goals, and what's available in your area.
+    </p>
+    <div class="btn-group mt-6">
+      <a class="btn btn--primary" href="{{ url_for('contact') }}">Ask About Services</a>
+      <a class="btn btn--outline" href="{{ url_for('referral') }}">Make a Referral</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ALL SERVICES — ONE GRID
+     ============================================================ -->
+<section class="section" aria-labelledby="all-services-title">
+  <div class="container">
+
+    <div class="section-header section-header--center">
+      <span class="section-label">Everything We Offer</span>
+      <h2 class="section-title" id="all-services-title">
+        All of Our Services
+      </h2>
+    </div>
+
+    <div class="service-card-grid">
+      {% for svc in all_services %}
+      <a class="service-mini-card" href="{{ url_for('service_detail', slug=svc.slug) }}" aria-label="{{ svc.name }}: {{ svc.short }}">
+        <span class="service-mini-card__icon" aria-hidden="true">{{ svc.icon }}</span>
+        <span class="service-mini-card__name">{{ svc.name }}</span>
+        <span class="service-mini-card__short">{{ svc.short }}</span>
+      </a>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     AVAILABILITY NOTE
+     ============================================================ -->
+<section class="section--sm section--gray">
+  <div class="container" style="max-width: var(--max-width-narrow);">
+    <div class="info-box">
+      <strong>Good to know:</strong> All services are tailored to each person's
+      situation. Availability depends on your needs, location, and what's the
+      right fit for you. Not sure where to start? Just give us a call — we'll
+      help you figure it out.
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CTA BANNER
+     ============================================================ -->
+<section class="cta-banner" aria-labelledby="services-cta-title">
+  <div class="container">
+    <div class="cta-banner__inner">
+      <h2 class="cta-banner__title" id="services-cta-title">
+        Not Sure Which Services You Need?
+      </h2>
+      <p class="cta-banner__text">
+        That's okay — most people aren't. Call or message us and we'll walk
+        you through everything in plain language. No pressure, no jargon.
+      </p>
+      <div class="btn-group" style="justify-content: center;">
+        <a class="btn btn--accent btn--xl" href="{{ url_for('contact') }}">Talk to Our Team</a>
+        <a class="btn btn--outline-light btn--xl" href="{{ url_for('referral') }}">Make a Referral</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

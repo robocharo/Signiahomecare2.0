@@ -1,0 +1,201 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- PAGE HERO -->
+<section class="page-hero" aria-labelledby="svc-hero-title">
+  <div class="container">
+    <div class="page-hero__inner">
+      <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+        <a href="{{ url_for('index') }}">Home</a>
+        <span aria-hidden="true">›</span>
+        <a href="{{ url_for('services') }}">Services</a>
+        <span aria-hidden="true">›</span>
+        {% if service.category == 'comprehensive' %}
+          <a href="{{ url_for('comprehensive_home_care') }}">Comprehensive Home Care</a>
+        {% else %}
+          <a href="{{ url_for('basic_245d') }}">Basic 245D Services</a>
+        {% endif %}
+        <span aria-hidden="true">›</span>
+        <span aria-current="page">{{ service.name }}</span>
+      </nav>
+
+      <span style="font-size: 2.5rem; display:block; margin-bottom: var(--space-4);" aria-hidden="true">{{ service.icon }}</span>
+
+      <h1 class="page-hero__title" id="svc-hero-title">
+        {{ service.hero_headline }}
+      </h1>
+      <p class="page-hero__subtitle">
+        {{ service.hero_sub }}
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     MAIN CONTENT
+     ============================================================ -->
+<section class="section" aria-labelledby="svc-intro">
+  <div class="container">
+    <div class="two-col two-col--60-40">
+
+      <!-- LEFT: Main content -->
+      <div>
+
+        <p class="service-intro">{{ service.intro }}</p>
+
+        <h2 class="section-title" id="svc-intro" style="font-size: var(--text-2xl); margin-top: var(--space-8);">
+          About This Service
+        </h2>
+        <p>{{ service.description }}</p>
+
+        <div class="info-box">
+          <strong>Please note:</strong> Services are individualized based on assessment,
+          care plan, program eligibility, and staff availability. Contact us to discuss
+          whether this service may be right for you or your loved one.
+        </div>
+
+        <!-- Who Benefits -->
+        <h2 style="font-size: var(--text-xl); font-weight: var(--font-bold); margin: var(--space-8) 0 var(--space-4);">
+          Who May Benefit from {{ service.name }}?
+        </h2>
+        <ul class="check-list">
+          {% for item in service.who_benefits %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+
+        <!-- How It Helps -->
+        <h2 style="font-size: var(--text-xl); font-weight: var(--font-bold); margin: var(--space-8) 0 var(--space-4);">
+          How {{ service.name }} Supports You
+        </h2>
+        <ul class="check-list">
+          {% for item in service.how_it_helps %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+
+        <!-- What to Expect -->
+        <h2 style="font-size: var(--text-xl); font-weight: var(--font-bold); margin: var(--space-8) 0 var(--space-4);">
+          What to Expect
+        </h2>
+        <p>{{ service.what_to_expect }}</p>
+
+        <!-- Why Signia -->
+        <h2 style="font-size: var(--text-xl); font-weight: var(--font-bold); margin: var(--space-8) 0 var(--space-4);">
+          Why Choose Signia Home Care?
+        </h2>
+        <p>{{ service.why_signia }}</p>
+
+      </div>
+
+      <!-- RIGHT: Sidebar -->
+      <div style="display: flex; flex-direction: column; gap: var(--space-6);">
+
+        <!-- Quick contact card -->
+        <div class="card" style="background: var(--gradient-hero); color: var(--color-white);">
+          <h3 style="font-family: var(--font-display); font-size: var(--text-2xl); color: var(--color-white); margin-bottom: var(--space-3);">
+            Ready to Get Started?
+          </h3>
+          <p style="color: rgba(255,255,255,0.88); margin-bottom: var(--space-5); line-height: var(--leading-relaxed);">
+            Contact us today to discuss {{ service.name }} and how Signia Home Care
+            can support you or a loved one.
+          </p>
+          <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+            <a class="btn btn--accent btn--lg" href="{{ url_for('referral') }}" style="text-align: center; justify-content: center;">
+              Make a Referral
+            </a>
+            <a class="btn btn--outline-light" href="{{ url_for('contact') }}" style="text-align: center; justify-content: center;">
+              Contact Us
+            </a>
+          </div>
+          <div style="margin-top: var(--space-5); border-top: 1px solid rgba(255,255,255,0.2); padding-top: var(--space-4);">
+            <p style="color: rgba(255,255,255,0.8); font-size: var(--text-sm); margin:0;">
+              📞 <a href="tel:{{ business.phone|replace(' ','') }}" style="color: var(--color-white);">
+                {{ business.phone }}
+              </a>
+            </p>
+            <p style="color: rgba(255,255,255,0.7); font-size: var(--text-xs); margin-top: var(--space-1);">
+              {{ business.hours }}
+            </p>
+          </div>
+        </div>
+
+
+        <!-- Service area -->
+        <div class="card card--flat">
+          <h3 style="font-size: var(--text-base); font-weight: var(--font-bold); margin-bottom: var(--space-3);">
+            📍 Service Area
+          </h3>
+          <p style="font-size: var(--text-sm); color: var(--color-text-muted); line-height: var(--leading-relaxed);">
+            {{ business.service_area }}
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     RELATED SERVICES
+     ============================================================ -->
+<section class="section section--gray" aria-labelledby="related-title">
+  <div class="container">
+
+    <div class="section-header section-header--center">
+      <span class="section-label">You Might Also Need</span>
+      <h2 class="section-title" id="related-title">
+        Related Services
+      </h2>
+      <p class="section-subtitle">
+        Many families combine multiple services to get the right level of
+        support. Here are a few others that pair well with
+        {{ service.name }}.
+      </p>
+    </div>
+
+    <div class="grid-3" style="margin-bottom: var(--space-10);">
+      {% for r in related %}
+      <a class="service-mini-card" href="{{ url_for('service_detail', slug=r.slug) }}">
+        <span class="service-mini-card__icon" aria-hidden="true">{{ r.icon }}</span>
+        <span class="service-mini-card__name">{{ r.name }}</span>
+        <span class="service-mini-card__short">{{ r.short }}</span>
+      </a>
+      {% endfor %}
+    </div>
+
+    <div class="btn-group" style="justify-content: center;">
+      <a class="btn btn--primary" href="{{ url_for('services') }}">View All Services</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CTA BANNER
+     ============================================================ -->
+<section class="cta-banner" aria-labelledby="svc-cta-title">
+  <div class="container">
+    <div class="cta-banner__inner">
+      <h2 class="cta-banner__title" id="svc-cta-title">
+        Questions About {{ service.name }}?
+      </h2>
+      <p class="cta-banner__text">
+        Our team is here to help. Whether you're a family member, a healthcare
+        professional, or a case manager — we're happy to discuss how this
+        service works and whether it's the right fit.
+      </p>
+      <div class="btn-group" style="justify-content: center;">
+        <a class="btn btn--accent btn--xl" href="{{ url_for('referral') }}">Make a Referral</a>
+        <a class="btn btn--outline-light btn--xl" href="{{ url_for('contact') }}">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

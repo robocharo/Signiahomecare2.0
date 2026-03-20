@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}{{ title }}{% endblock %}</title>
+  <meta name="description" content="{{ meta_desc }}" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="{{ title }}" />
+  <meta property="og:description" content="{{ meta_desc }}" />
+  <meta property="og:site_name"   content="{{ business.name }}" />
+  <!-- TODO: Add og:image with real logo/hero image URL -->
+
+  <!-- Canonical -->
+  <link rel="canonical" href="{{ request.url }}" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+
+  <!-- Favicon TODO: Replace with actual favicon -->
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}" />
+
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+<!-- ============================================================
+     SKIP NAVIGATION (Accessibility)
+     ============================================================ -->
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- ============================================================
+     TOP BAR
+     ============================================================ -->
+<div class="top-bar">
+  <div class="container top-bar__inner">
+    <span class="top-bar__item">
+      📍 {{ business.address }}
+    </span>
+    <span class="top-bar__item">
+      📞 <a href="tel:{{ business.phone|replace(' ','') }}">{{ business.phone }}</a>
+    </span>
+    <span class="top-bar__item">
+      ✉️ <a href="mailto:{{ business.email }}">{{ business.email }}</a>
+    </span>
+  </div>
+</div>
+
+<!-- ============================================================
+     HEADER / NAVIGATION
+     ============================================================ -->
+<header class="site-header" role="banner">
+  <div class="container site-header__inner">
+
+    <!-- Logo -->
+    <a class="site-logo" href="{{ url_for('index') }}" aria-label="{{ business.name }} — Home">
+      <!-- TODO: Replace with actual logo image:
+           <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="{{ business.name }}" width="200" height="56"> -->
+      <span class="site-logo__mark">✦</span>
+      <span class="site-logo__text">
+        <span class="site-logo__name">Signia</span>
+        <span class="site-logo__sub">Home Care</span>
+      </span>
+    </a>
+
+    <!-- Hamburger (mobile) -->
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Open navigation menu">
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+    </button>
+
+    <!-- Primary Navigation -->
+    <nav class="primary-nav" id="primaryNav" role="navigation" aria-label="Primary navigation">
+      <ul class="primary-nav__list">
+        <li><a class="primary-nav__link {% if request.endpoint == 'index' %}is-active{% endif %}" href="{{ url_for('index') }}">Home</a></li>
+        <li><a class="primary-nav__link {% if request.endpoint == 'about' %}is-active{% endif %}" href="{{ url_for('about') }}">About</a></li>
+
+        <li><a class="primary-nav__link {% if 'service' in request.endpoint %}is-active{% endif %}" href="{{ url_for('services') }}">Services</a></li>
+
+        <li><a class="primary-nav__link {% if request.endpoint == 'careers' %}is-active{% endif %}" href="{{ url_for('careers') }}">Careers</a></li>
+        <li><a class="primary-nav__link {% if request.endpoint == 'contact' %}is-active{% endif %}" href="{{ url_for('contact') }}">Contact</a></li>
+      </ul>
+
+      <a class="btn btn--primary btn--sm nav-cta" href="{{ url_for('referral') }}">Request Care</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============================================================
+     FLASH MESSAGES
+     ============================================================ -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="flash-container container" role="alert" aria-live="polite">
+      {% for category, message in messages %}
+        <div class="flash flash--{{ category }}">
+          <span>{{ message }}</span>
+          <button class="flash__close" aria-label="Dismiss">✕</button>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+<!-- ============================================================
+     MAIN CONTENT
+     ============================================================ -->
+<main id="main-content" role="main">
+  {% block content %}{% endblock %}
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <!-- Brand column -->
+      <div class="footer-col footer-col--brand">
+        <a class="site-logo site-logo--footer" href="{{ url_for('index') }}" aria-label="{{ business.name }} — Home">
+          <span class="site-logo__mark">✦</span>
+          <span class="site-logo__text">
+            <span class="site-logo__name">Signia</span>
+            <span class="site-logo__sub">Home Care</span>
+          </span>
+        </a>
+        <p class="footer-tagline">{{ business.tagline }}</p>
+        <div class="footer-licenses">
+          {% for lic in business.licenses %}
+            <span class="license-badge">✓ {{ lic }}</span>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-col">
+        <h3 class="footer-heading">Quick Links</h3>
+        <ul class="footer-nav">
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li><a href="{{ url_for('about') }}">About Us</a></li>
+          <li><a href="{{ url_for('services') }}">Our Services</a></li>
+          <li><a href="{{ url_for('referral') }}">Make a Referral</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-col">
+        <h3 class="footer-heading">Our Services</h3>
+        <ul class="footer-nav">
+          <li><a href="{{ url_for('services') }}">All Services</a></li>
+          <li><a href="{{ url_for('service_detail', slug='registered-nurse-services') }}">Nursing Services</a></li>
+          <li><a href="{{ url_for('service_detail', slug='medication-management') }}">Medication Management</a></li>
+          <li><a href="{{ url_for('service_detail', slug='personal-care-assistance') }}">Personal Care</a></li>
+          <li><a href="{{ url_for('service_detail', slug='respite-care') }}">Respite Care</a></li>
+          <li><a href="{{ url_for('service_detail', slug='companion-services') }}">Companion Services</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-col">
+        <h3 class="footer-heading">Contact Us</h3>
+        <address class="footer-contact">
+          <p>
+            <span class="footer-contact__icon" aria-hidden="true">📍</span>
+            {{ business.address }}
+          </p>
+          <p>
+            <span class="footer-contact__icon" aria-hidden="true">📞</span>
+            <a href="tel:{{ business.phone|replace(' ','') }}">{{ business.phone }}</a>
+          </p>
+          <p>
+            <span class="footer-contact__icon" aria-hidden="true">📠</span>
+            Fax: {{ business.fax }}
+          </p>
+          <p>
+            <span class="footer-contact__icon" aria-hidden="true">✉️</span>
+            <a href="mailto:{{ business.email }}">{{ business.email }}</a>
+          </p>
+          <p>
+            <span class="footer-contact__icon" aria-hidden="true">🕐</span>
+            {{ business.hours }}
+          </p>
+          <p>
+            <span class="footer-contact__icon" aria-hidden="true">🔔</span>
+            {{ business.hours_on_call }}
+          </p>
+        </address>
+        <a class="btn btn--outline-light btn--sm mt-2" href="{{ url_for('contact') }}">Get in Touch</a>
+      </div>
+
+    </div><!-- /footer-grid -->
+
+    <!-- Service Area -->
+    <div class="footer-service-area">
+      <p><strong>Proudly Serving:</strong> {{ business.service_area }}</p>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+      <p>&copy; {% set year = 2026 %}{{ year }} {{ business.name }}. All rights reserved.</p>
+      <p class="footer-disclaimer">
+        Services are individualized and may be available based on assessment, staff availability, and program fit.
+        Signia Home Care is certified by the State of Minnesota.
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

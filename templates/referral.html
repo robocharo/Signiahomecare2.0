@@ -1,0 +1,383 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- PAGE HERO -->
+<section class="page-hero" aria-labelledby="referral-hero-title">
+  <div class="container">
+    <div class="page-hero__inner">
+      <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+        <a href="{{ url_for('index') }}">Home</a>
+        <span aria-hidden="true">›</span>
+        <span aria-current="page">Make a Referral</span>
+      </nav>
+      <h1 class="page-hero__title" id="referral-hero-title">
+        Make a Referral to Signia Home Care
+      </h1>
+      <p class="page-hero__subtitle">
+        Referring someone is simple and fast. Our team responds to all
+        referrals within one business day — because your clients and patients
+        deserve timely, compassionate care.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     WHO CAN REFER
+     ============================================================ -->
+<section class="section section--gray" aria-labelledby="who-can-refer">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <span class="section-label">Referral Partners</span>
+      <h2 class="section-title" id="who-can-refer">
+        Who Can Make a Referral?
+      </h2>
+      <p class="section-subtitle">
+        We welcome referrals from healthcare professionals, community partners,
+        and families alike. If you know someone who could benefit from
+        compassionate home care support, we'd love to hear from you.
+      </p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card text-center">
+        <span class="card__icon" aria-hidden="true">🏥</span>
+        <h3 class="card__title">Hospitals &amp; Health Systems</h3>
+        <p class="card__text">
+          Discharge planners and case managers coordinating safe transitions
+          from hospital to home.
+        </p>
+      </div>
+      <div class="card text-center">
+        <span class="card__icon" aria-hidden="true">👩‍⚕️</span>
+        <h3 class="card__title">Social Workers &amp; Case Managers</h3>
+        <p class="card__text">
+          County case managers, social workers, and waiver coordinators
+          connecting clients with trusted home care support.
+        </p>
+      </div>
+      <div class="card text-center">
+        <span class="card__icon" aria-hidden="true">🏢</span>
+        <h3 class="card__title">Clinics &amp; Healthcare Providers</h3>
+        <p class="card__text">
+          Physicians, nurses, therapists, and clinic staff who want to ensure
+          continuity of care for their patients at home.
+        </p>
+      </div>
+      <div class="card text-center">
+        <span class="card__icon" aria-hidden="true">👨‍👩‍👧</span>
+        <h3 class="card__title">Families &amp; Loved Ones</h3>
+        <p class="card__text">
+          Family members who want to explore home care options for a loved one
+          who needs support, companionship, or clinical assistance.
+        </p>
+      </div>
+      <div class="card text-center">
+        <span class="card__icon" aria-hidden="true">🌍</span>
+        <h3 class="card__title">Community Organizations</h3>
+        <p class="card__text">
+          Nonprofits, faith communities, senior centers, and advocacy groups
+          connecting community members with care resources.
+        </p>
+      </div>
+      <div class="card text-center">
+        <span class="card__icon" aria-hidden="true">🔄</span>
+        <h3 class="card__title">Self-Referrals</h3>
+        <p class="card__text">
+          Individuals who are seeking home care services for themselves and
+          want to start a conversation about their own needs and options.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     REFERRAL PROCESS
+     ============================================================ -->
+<section class="section" aria-labelledby="process-title">
+  <div class="container">
+    <div class="two-col">
+
+      <div>
+        <span class="section-label">How It Works</span>
+        <h2 class="section-title" id="process-title">
+          Our Simple Referral Process
+        </h2>
+        <p style="color: var(--color-text-muted); margin-bottom: var(--space-8);">
+          We've designed our referral process to be as simple and responsive as
+          possible — so your client or loved one can get the care they need
+          without unnecessary delays.
+        </p>
+
+        <div class="referral-steps">
+          <div class="referral-step">
+            <div class="referral-step__number">1</div>
+            <div class="referral-step__content">
+              <h3>Submit the Referral Form</h3>
+              <p>Complete the referral form on this page with basic information about the person in need of care and your contact details.</p>
+            </div>
+          </div>
+          <div class="referral-step">
+            <div class="referral-step__number">2</div>
+            <div class="referral-step__content">
+              <h3>We'll Follow Up Promptly</h3>
+              <p>A member of our team will contact you within one business day to discuss the referral, answer questions, and gather any additional information needed.</p>
+            </div>
+          </div>
+          <div class="referral-step">
+            <div class="referral-step__number">3</div>
+            <div class="referral-step__content">
+              <h3>Assessment &amp; Care Planning</h3>
+              <p>We'll coordinate an in-home assessment to understand the individual's needs, goals, and eligibility for services — working with you, the client, and their care team.</p>
+            </div>
+          </div>
+          <div class="referral-step">
+            <div class="referral-step__number">4</div>
+            <div class="referral-step__content">
+              <h3>Care Begins</h3>
+              <p>Once a care plan is established and services are authorized, we'll get started — with ongoing communication to keep you and your client informed every step of the way.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Referral form -->
+      <div>
+        <div class="form-section" id="referral-form">
+          <h2 class="form-title">Referral Form</h2>
+          <p class="form-subtitle">
+            Please complete the form below. Fields marked with
+            <span style="color: var(--color-error);">*</span> are required.
+          </p>
+
+          <form action="{{ url_for('referral') }}#referral-form" method="POST" novalidate>
+
+            <div class="form-grid form-grid--2">
+
+              <!-- REFERRER INFO -->
+              <div class="form-group form-group--full">
+                <p style="font-size: var(--text-sm); font-weight: var(--font-bold); color: var(--color-gray-700); text-transform: uppercase; letter-spacing: 0.06em;">
+                  About You (the Referrer)
+                </p>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="referrer_name">
+                  Your Full Name <span class="required">*</span>
+                </label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="referrer_name"
+                  name="referrer_name"
+                  placeholder="Jane Smith"
+                  required
+                  autocomplete="name"
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="organization">
+                  Organization / Agency
+                </label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="organization"
+                  name="organization"
+                  placeholder="Hennepin Healthcare"
+                  autocomplete="organization"
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="referrer_phone">
+                  Your Phone Number <span class="required">*</span>
+                </label>
+                <input
+                  class="form-input"
+                  type="tel"
+                  id="referrer_phone"
+                  name="referrer_phone"
+                  placeholder="(612) 555-0100"
+                  required
+                  autocomplete="tel"
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="referrer_email">
+                  Your Email Address <span class="required">*</span>
+                </label>
+                <input
+                  class="form-input"
+                  type="email"
+                  id="referrer_email"
+                  name="referrer_email"
+                  placeholder="jane@organization.org"
+                  required
+                  autocomplete="email"
+                />
+              </div>
+
+              <!-- CLIENT INFO -->
+              <div class="form-group form-group--full" style="margin-top: var(--space-4);">
+                <p style="font-size: var(--text-sm); font-weight: var(--font-bold); color: var(--color-gray-700); text-transform: uppercase; letter-spacing: 0.06em;">
+                  About the Individual Needing Care
+                </p>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="client_name">
+                  Client Name <span class="required">*</span>
+                </label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="client_name"
+                  name="client_name"
+                  placeholder="First and Last Name"
+                  required
+                />
+                <span class="form-hint">First name only is acceptable if full name cannot be shared.</span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="client_phone">
+                  Client or Family Phone
+                </label>
+                <input
+                  class="form-input"
+                  type="tel"
+                  id="client_phone"
+                  name="client_phone"
+                  placeholder="(612) 555-0200"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group form-group--full">
+                <label class="form-label" for="client_city">
+                  Client City / Location
+                </label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="client_city"
+                  name="client_city"
+                  placeholder="Minneapolis, Plymouth, Edina, etc."
+                />
+              </div>
+
+              <div class="form-group form-group--full">
+                <label class="form-label" for="service_interest">
+                  Services of Interest
+                </label>
+                <select class="form-select" id="service_interest" name="service_interest">
+                  <option value="">— Select a service (or leave blank) —</option>
+                  {% for svc in all_services %}
+                  <option value="{{ svc.slug }}">{{ svc.name }}</option>
+                  {% endfor %}
+                  <option value="not-sure">Not sure — please help us figure it out</option>
+                </select>
+              </div>
+
+              <div class="form-group form-group--full">
+                <label class="form-label" for="notes">
+                  Care Needs / Additional Notes
+                </label>
+                <textarea
+                  class="form-textarea"
+                  id="notes"
+                  name="notes"
+                  placeholder="Please share any relevant information about the individual's care needs, current situation, urgency, or anything else that would help us respond effectively..."
+                  style="min-height: 140px;"
+                ></textarea>
+              </div>
+
+              <!-- Privacy notice -->
+              <div class="form-privacy form-group--full">
+                🔒 <strong>Privacy Notice:</strong> The information you provide in this
+                form will be used solely to respond to this referral inquiry and connect
+                the individual with appropriate home care services. Please share only what
+                is necessary to initiate the referral. Signia Home Care is committed to
+                handling all information with care and discretion. We encourage referrers
+                to share only necessary information consistent with applicable privacy
+                considerations.
+              </div>
+
+              <div class="form-group form-group--full">
+                <button type="submit" class="btn btn--primary btn--lg" style="width: 100%; justify-content: center;">
+                  Submit Referral →
+                </button>
+              </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     WHY REFER TO US
+     ============================================================ -->
+<section class="section section--blue" aria-labelledby="why-refer-title">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <span class="section-label">Why Signia</span>
+      <h2 class="section-title" id="why-refer-title">
+        Why Refer to Signia Home Care?
+      </h2>
+    </div>
+
+    <div class="grid-4">
+      <div class="card">
+        <span class="card__icon" aria-hidden="true">⚡</span>
+        <h3 class="card__title">Fast Response</h3>
+        <p class="card__text">
+          We follow up on all referrals within one business day. Urgent situations
+          receive priority attention.
+        </p>
+      </div>
+      <div class="card">
+        <span class="card__icon" aria-hidden="true">🏅</span>
+        <h3 class="card__title">Two Programs, One Provider</h3>
+        <p class="card__text">
+          We offer both skilled home care and daily living support services —
+          meaning we can serve a wider range of client needs than many other
+          providers in the Twin Cities.
+        </p>
+      </div>
+      <div class="card">
+        <span class="card__icon" aria-hidden="true">📞</span>
+        <h3 class="card__title">Clear Communication</h3>
+        <p class="card__text">
+          We keep referring providers and families informed throughout the intake
+          and care process. No chasing us down for updates.
+        </p>
+      </div>
+      <div class="card">
+        <span class="card__icon" aria-hidden="true">❤️</span>
+        <h3 class="card__title">Compassionate Caregivers</h3>
+        <p class="card__text">
+          Your clients will be met by professionals who are as kind as they are
+          skilled — making every transition into home care feel safe and supported.
+        </p>
+      </div>
+    </div>
+
+    <div class="text-center mt-8">
+      <a class="btn btn--primary btn--lg" href="{{ url_for('contact') }}">Questions? Contact Us</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

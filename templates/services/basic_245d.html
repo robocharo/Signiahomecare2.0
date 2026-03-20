@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="page-hero" aria-labelledby="basic-hero-title">
+  <div class="container">
+    <div class="page-hero__inner">
+      <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+        <a href="{{ url_for('index') }}">Home</a>
+        <span>›</span>
+        <a href="{{ url_for('services') }}">Services</a>
+        <span>›</span>
+        <span aria-current="page">Basic 245D Services</span>
+      </nav>
+      <h1 class="page-hero__title" id="basic-hero-title">
+        Basic 245D Support Services
+      </h1>
+      <p class="page-hero__subtitle">
+        Community-based supportive services to help individuals with disabilities
+        live independently and thrive — in their home, on their terms.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<section class="section section--gray" aria-labelledby="basic-intro-title">
+  <div class="container" style="max-width: var(--max-width-narrow);">
+    <span class="section-label">About These Services</span>
+    <h2 class="section-title" id="basic-intro-title">
+      What Are Basic 245D Services?
+    </h2>
+    <p class="lead">
+      Basic 245D is a group of supportive services for individuals with
+      disabilities who want to live independently in the community. Think of
+      it as everyday help — companionship, household tasks, overnight safety,
+      and caregiver relief — rather than medical or clinical care.
+    </p>
+    <p>
+      These services are often covered through Minnesota Medicaid waiver
+      programs. A case manager typically helps set up the support plan.
+      If you're not sure where to start, we can help point you in the
+      right direction — just give us a call.
+    </p>
+    <p>
+      Signia Home Care is state-certified to provide these services, and we
+      deliver them with the same warmth, reliability, and respect that defines
+      everything we do.
+    </p>
+    <div class="info-box">
+      245D services require program eligibility and an individualized support plan.
+      Services may vary based on waiver program, funding authorization, and individual
+      assessment. Please contact us or your case manager to learn more.
+    </div>
+  </div>
+</section>
+
+
+<section class="section" aria-labelledby="basic-services-title">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <h2 class="section-title" id="basic-services-title">
+        Our Basic 245D Services
+      </h2>
+    </div>
+    <div class="service-card-grid">
+      {% for svc in services %}
+      <a class="service-mini-card" href="{{ url_for('service_detail', slug=svc.slug) }}">
+        <span class="service-mini-card__icon" aria-hidden="true">{{ svc.icon }}</span>
+        <span class="service-mini-card__name">{{ svc.name }}</span>
+        <span class="service-mini-card__short">{{ svc.short }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+<section class="cta-banner" aria-labelledby="basic-cta-title">
+  <div class="container">
+    <div class="cta-banner__inner">
+      <h2 class="cta-banner__title" id="basic-cta-title">
+        Learn More About 245D Services
+      </h2>
+      <p class="cta-banner__text">
+        Our team can help you understand how Basic 245D services work, whether
+        you qualify, and how Signia Home Care can support your goals.
+      </p>
+      <div class="btn-group" style="justify-content: center;">
+        <a class="btn btn--accent btn--xl" href="{{ url_for('contact') }}">Contact Our Team</a>
+        <a class="btn btn--outline-light btn--xl" href="{{ url_for('referral') }}">Make a Referral</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

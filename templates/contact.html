@@ -1,0 +1,289 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- PAGE HERO -->
+<section class="page-hero" aria-labelledby="contact-hero-title">
+  <div class="container">
+    <div class="page-hero__inner">
+      <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+        <a href="{{ url_for('index') }}">Home</a>
+        <span aria-hidden="true">›</span>
+        <span aria-current="page">Contact Us</span>
+      </nav>
+      <h1 class="page-hero__title" id="contact-hero-title">
+        We'd Love to Hear from You
+      </h1>
+      <p class="page-hero__subtitle">
+        Whether you have a question about our services, want to explore options
+        for a loved one, or are ready to get care started — reach out. We're
+        here and we're happy to help.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CONTACT SECTION
+     ============================================================ -->
+<section class="section" aria-labelledby="contact-intro">
+  <div class="container">
+
+    <div class="contact-grid">
+
+      <!-- LEFT: Contact info -->
+      <div>
+        <span class="section-label">Get in Touch</span>
+        <h2 class="section-title" id="contact-intro">
+          Contact Signia Home Care
+        </h2>
+        <p style="color: var(--color-text-muted); margin-bottom: var(--space-8); line-height: var(--leading-relaxed);">
+          We understand that choosing home care is a big decision. Our team is
+          here to answer your questions honestly, help you understand your options,
+          and walk with you through every step of the process.
+        </p>
+
+        <div class="contact-info-card">
+
+          <div class="contact-info-item">
+            <div class="contact-info-item__icon" aria-hidden="true">📍</div>
+            <div>
+              <p class="contact-info-item__label">Office Address</p>
+              <p class="contact-info-item__value">{{ business.address }}</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-item__icon" aria-hidden="true">📞</div>
+            <div>
+              <p class="contact-info-item__label">Phone</p>
+              <p class="contact-info-item__value">
+                <a href="tel:{{ business.phone|replace(' ','') }}">{{ business.phone }}</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-item__icon" aria-hidden="true">📠</div>
+            <div>
+              <p class="contact-info-item__label">Fax</p>
+              <p class="contact-info-item__value">{{ business.fax }}</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-item__icon" aria-hidden="true">✉️</div>
+            <div>
+              <p class="contact-info-item__label">Email</p>
+              <p class="contact-info-item__value">
+                <a href="mailto:{{ business.email }}">{{ business.email }}</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-item__icon" aria-hidden="true">🕐</div>
+            <div>
+              <p class="contact-info-item__label">Office Hours</p>
+              <p class="contact-info-item__value">{{ business.hours }}</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-item__icon" aria-hidden="true">🔔</div>
+            <div>
+              <p class="contact-info-item__label">After-Hours</p>
+              <p class="contact-info-item__value">{{ business.hours_on_call }}</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-item__icon" aria-hidden="true">📍</div>
+            <div>
+              <p class="contact-info-item__label">Service Area</p>
+              <p class="contact-info-item__value" style="font-size: var(--text-sm);">{{ business.service_area }}</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Quick links -->
+        <div style="margin-top: var(--space-6); display: flex; flex-direction: column; gap: var(--space-3);">
+          <a class="btn btn--primary" href="{{ url_for('referral') }}">Make a Referral →</a>
+          <a class="btn btn--outline" href="{{ url_for('services') }}">Explore Our Services →</a>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: Contact form -->
+      <div>
+        <div class="form-section" id="contact-form">
+          <h2 class="form-title">Send Us a Message</h2>
+          <p class="form-subtitle">
+            Fill out the form below and a member of our team will get back to
+            you within one business day. Fields marked with
+            <span style="color: var(--color-error);">*</span> are required.
+          </p>
+
+          <form action="{{ url_for('contact') }}#contact-form" method="POST" novalidate>
+
+            <div class="form-grid form-grid--2">
+
+              <div class="form-group">
+                <label class="form-label" for="name">
+                  Your Name <span class="required">*</span>
+                </label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Your full name"
+                  required
+                  autocomplete="name"
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="phone">
+                  Phone Number
+                </label>
+                <input
+                  class="form-input"
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="(612) 555-0100"
+                  autocomplete="tel"
+                />
+              </div>
+
+              <div class="form-group form-group--full">
+                <label class="form-label" for="email">
+                  Email Address <span class="required">*</span>
+                </label>
+                <input
+                  class="form-input"
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="you@example.com"
+                  required
+                  autocomplete="email"
+                />
+              </div>
+
+              <div class="form-group form-group--full">
+                <label class="form-label" for="reason">
+                  What Can We Help You With?
+                </label>
+                <select class="form-select" id="reason" name="reason">
+                  <option value="">— Select a topic —</option>
+                  <option value="services">Questions about services</option>
+                  <option value="referral">Making a referral</option>
+                  <option value="eligibility">Eligibility and program fit</option>
+                  <option value="insurance">Insurance and billing</option>
+                  <option value="employment">Employment opportunities</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group form-group--full">
+                <label class="form-label" for="message">
+                  Your Message <span class="required">*</span>
+                </label>
+                <textarea
+                  class="form-textarea"
+                  id="message"
+                  name="message"
+                  placeholder="Tell us what's on your mind. We're here to help."
+                  style="min-height: 150px;"
+                  required
+                ></textarea>
+              </div>
+
+              <div class="form-privacy form-group--full">
+                🔒 <strong>Privacy Notice:</strong> Your information is kept confidential
+                and will only be used to respond to your inquiry. Signia Home Care does
+                not sell, share, or distribute personal information to third parties.
+              </div>
+
+              <div class="form-group form-group--full">
+                <button type="submit" class="btn btn--primary btn--lg" style="width: 100%; justify-content: center;">
+                  Send Message →
+                </button>
+              </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     MAP SECTION
+     ============================================================ -->
+<section class="section section--gray" aria-labelledby="map-title">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <span class="section-label">Find Us</span>
+      <h2 class="section-title" id="map-title">
+        Located in Minneapolis, Serving the Twin Cities
+      </h2>
+      <p class="section-subtitle">
+        {{ business.address }}
+      </p>
+    </div>
+
+    <div style="max-width: 860px; margin: 0 auto; border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-xl);">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2823.9!2d-93.29!3d44.94!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b332a1e4d3c0b7%3A0x0!2s3030+Holmes+Ave+S%2C+Minneapolis%2C+MN+55408!5e0!3m2!1sen!2sus!4v1"
+        width="100%"
+        height="420"
+        style="border:0; display:block;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Signia Home Care — 3030 Holmes Ave S, Minneapolis, MN 55408">
+      </iframe>
+    </div>
+    <div class="text-center" style="margin-top: var(--space-4);">
+      <a class="btn btn--outline btn--sm" href="https://maps.google.com/?q=3030+Holmes+Ave+S,+Minneapolis,+MN+55408" target="_blank" rel="noopener noreferrer">
+        Open in Google Maps →
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CTA BANNER
+     ============================================================ -->
+<section class="cta-banner" aria-labelledby="contact-cta-title">
+  <div class="container">
+    <div class="cta-banner__inner">
+      <h2 class="cta-banner__title" id="contact-cta-title">
+        Don't Wait to Get the Help You Need
+      </h2>
+      <p class="cta-banner__text">
+        Whether you're planning ahead, responding to an urgent need, or simply
+        exploring options — we're ready to talk. Reach out today.
+      </p>
+      <div class="btn-group" style="justify-content: center;">
+        <a class="btn btn--accent btn--xl" href="tel:{{ business.phone|replace(' ','') }}">
+          📞 Call {{ business.phone }}
+        </a>
+        <a class="btn btn--outline-light btn--xl" href="{{ url_for('referral') }}">
+          Make a Referral
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="page-hero" aria-labelledby="comp-hero-title">
+  <div class="container">
+    <div class="page-hero__inner">
+      <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+        <a href="{{ url_for('index') }}">Home</a>
+        <span>›</span>
+        <a href="{{ url_for('services') }}">Services</a>
+        <span>›</span>
+        <span aria-current="page">Comprehensive Home Care</span>
+      </nav>
+      <h1 class="page-hero__title" id="comp-hero-title">
+        Comprehensive Home Care Services
+      </h1>
+      <p class="page-hero__subtitle">
+        Skilled clinical services and personalized home care support —
+        delivered with compassion and expertise by our licensed Minnesota team.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<section class="section section--gray" aria-labelledby="comp-intro-title">
+  <div class="container" style="max-width: var(--max-width-narrow);">
+    <span class="section-label">About These Services</span>
+    <h2 class="section-title" id="comp-intro-title">
+      What Is Comprehensive Home Care?
+    </h2>
+    <p class="lead">
+      Comprehensive Home Care covers a wide range of services — from skilled
+      nursing and therapy to personal care, medication management, household
+      help, and more. Think of it as everything from a visiting nurse to help
+      with bathing, meals, and laundry.
+    </p>
+    <p>
+      We are state-certified to provide these services, which means we can
+      support individuals with complex medical needs and those who simply
+      need a helping hand at home. All services are delivered with a
+      consistent commitment to dignity, safety, and quality of life.
+    </p>
+    <div class="info-box">
+      Services are individualized and available based on each person's assessment,
+      support plan, physician orders where required, and staff availability. Contact
+      us to discuss which services may be right for you or your loved one.
+    </div>
+  </div>
+</section>
+
+
+<section class="section" aria-labelledby="comp-services-title">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <h2 class="section-title" id="comp-services-title">
+        Our Comprehensive Home Care Services
+      </h2>
+    </div>
+    <div class="service-card-grid">
+      {% for svc in services %}
+      <a class="service-mini-card" href="{{ url_for('service_detail', slug=svc.slug) }}">
+        <span class="service-mini-card__icon" aria-hidden="true">{{ svc.icon }}</span>
+        <span class="service-mini-card__name">{{ svc.name }}</span>
+        <span class="service-mini-card__short">{{ svc.short }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+<section class="cta-banner" aria-labelledby="comp-cta-title">
+  <div class="container">
+    <div class="cta-banner__inner">
+      <h2 class="cta-banner__title" id="comp-cta-title">
+        Ready to Get Started?
+      </h2>
+      <p class="cta-banner__text">
+        Contact us today or make a referral to learn how our Comprehensive
+        Home Care services can support you or a loved one.
+      </p>
+      <div class="btn-group" style="justify-content: center;">
+        <a class="btn btn--accent btn--xl" href="{{ url_for('referral') }}">Make a Referral</a>
+        <a class="btn btn--outline-light btn--xl" href="{{ url_for('contact') }}">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

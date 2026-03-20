@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="section" style="position: relative; overflow: hidden;">
+  <div class="container">
+    <div class="error-page">
+      <span class="error-page__code" aria-hidden="true">500</span>
+      <div class="error-page__content">
+        <span style="font-size: 4rem; display: block; margin-bottom: var(--space-4);" aria-hidden="true">⚙️</span>
+        <h1 class="error-page__title">Something Went Wrong</h1>
+        <p class="error-page__text">
+          We're sorry — an unexpected error occurred. Our team has been notified.
+          Please try again in a moment, or contact us directly.
+        </p>
+        <div class="btn-group" style="justify-content: center;">
+          <a class="btn btn--primary btn--lg" href="{{ url_for('index') }}">← Back to Home</a>
+          <a class="btn btn--outline btn--lg" href="{{ url_for('contact') }}">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
