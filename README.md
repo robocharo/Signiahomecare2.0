@@ -103,7 +103,8 @@ gunicorn -w 4 -b 0.0.0.0:8000 app:app
 
 ### All Service Page Slugs
 
-**Comprehensive Home Care (24 pages):**
+**Comprehensive Home Care (25 pages):**
+- `/services/private-duty-nursing/`
 - `/services/advanced-practice-nurse-services/`
 - `/services/registered-nurse-services/`
 - `/services/licensed-practical-nurse-services/`
@@ -244,7 +245,13 @@ All images should feel warm, natural, and diverse — not stock-photo sterile.
   to imply guaranteed availability.
 - **No clinical guarantees** — Content does not promise specific health outcomes.
 - **No false license claims** — Services listed match the scope of Comprehensive
-  Home Care and Basic 245D licenses as defined by Minnesota DHS.
+  Home Care and Basic 245D licenses as defined by Minnesota DHS. In particular,
+  nursing is presented as **private duty nursing / home care nursing (HCN)** —
+  the continuous RN/LPN care a Comprehensive Home Care license authorizes — and
+  **not** as Medicare "skilled nursing" / skilled nurse visits or home health,
+  which require a Medicare-certified home health agency. Do not reintroduce
+  "skilled nursing" / "skilled nurse visit" / "home health" language unless the
+  agency actually holds Medicare home health certification.
 - **No HIPAA compliance claims** — The form includes a privacy notice but does not
   claim HIPAA compliance. If HIPAA compliance is required, consult a healthcare
   attorney and implement a BAA with your hosting/email provider.
@@ -258,10 +265,17 @@ All images should feel warm, natural, and diverse — not stock-photo sterile.
 
 ## Licenses Referenced
 
-- **Comprehensive Home Care License** — Governed by Minnesota Statutes 144A.43–144A.4799
-  and Minnesota Rules 4668. Allows skilled clinical services and personal/household care.
+- **Comprehensive Home Care License** — Governed by Minnesota Statutes 144A.471–144A.4799
+  and Minnesota Rules 4668. Authorizes the services of licensed health professionals
+  (APRN, PA, RN, LPN, PT, RT, OT, SLP, dietitian/nutritionist, social worker), nurse
+  delegation, medication management, and complex/specialty care — plus all basic
+  home care (assistive) services. This includes **private duty nursing (Home Care
+  Nursing / HCN, 42 CFR 440.80)**, the continuous one-on-one RN/LPN care Signia
+  provides. It does **not** by itself authorize Medicare "skilled nursing" / skilled
+  nurse visits or home health — those require separate Medicare-certified home
+  health agency status.
 - **Basic 245D License** — Governed by Minnesota Statutes 245D. Allows basic support
-  services for individuals with disabilities in home and community settings.
+  services (HCBS waiver) for individuals with disabilities in home and community settings.
 
 *Content was developed using publicly available information from the State of Minnesota
 Department of Health (MDH) and Department of Human Services (DHS). Always verify
