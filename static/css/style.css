@@ -431,8 +431,8 @@ button { cursor: pointer; font-family: inherit; }
   background: var(--gradient-hero);
   color: var(--color-white);
   border-radius: var(--radius-lg);
-  font-size: 1.25rem;
-  font-weight: var(--font-bold);
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(29,78,216,0.28);
 }
 
 .site-logo__text {
