@@ -414,50 +414,63 @@ button { cursor: pointer; font-family: inherit; }
 
 /* Logo */
 .site-logo {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
   text-decoration: none;
   color: inherit;
   flex-shrink: 0;
+  line-height: 1;
 }
 
-.site-logo__mark {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: var(--gradient-hero);
-  color: var(--color-white);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(29,78,216,0.28);
-}
-
-.site-logo__text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-}
-
-.site-logo__name {
+/* Wordmark — gradient serif logotype with an integrated heart accent.
+   The heart sits like a designed tittle; the gradient runs navy → blue →
+   teal so it reads as a crafted mark, not typed text. */
+.site-logo__word {
+  position: relative;
   font-family: var(--font-display);
-  font-size: var(--text-xl);
   font-weight: var(--font-bold);
-  color: var(--color-gray-900);
+  font-size: 1.85rem;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  white-space: nowrap;
+  color: #1D4ED8; /* fallback if background-clip:text is unsupported */
+  background: linear-gradient(100deg, #0B1E52 0%, #1D4ED8 52%, #14B8A6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.site-logo__sub {
-  font-size: var(--text-xs);
-  font-weight: var(--font-medium);
-  color: var(--color-secondary);
-  letter-spacing: 0.05em;
+.site-logo__heart {
+  display: inline-block;
+  width: 0.44em;
+  height: 0.44em;
+  margin-left: 0.05em;
+  vertical-align: 0.62em;      /* lift it to sit as an accent near cap height */
+  color: #14B8A6;              /* teal pops against the blue gradient word */
+  -webkit-text-fill-color: #14B8A6;
+  transition: transform var(--transition-normal);
+}
+.site-logo:hover .site-logo__heart { transform: scale(1.15); }
+
+.site-logo__kicker {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: var(--font-semi);
+  letter-spacing: 0.44em;
   text-transform: uppercase;
+  color: var(--color-secondary);
+  padding-left: 0.16em;        /* optically align under the wordmark's S */
 }
 
-.site-logo--footer .site-logo__name { color: var(--color-white); }
-.site-logo--footer .site-logo__sub  { color: rgba(255,255,255,0.7); }
+/* Footer variant — light on the dark footer (navy gradient would vanish) */
+.site-logo--footer .site-logo__word {
+  background: none;
+  color: var(--color-white);
+  -webkit-text-fill-color: var(--color-white);
+}
+.site-logo--footer .site-logo__kicker { color: rgba(255,255,255,0.6); }
 
 /* Nav */
 .primary-nav {
