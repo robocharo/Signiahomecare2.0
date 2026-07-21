@@ -37,8 +37,8 @@
   --color-text-muted:     #64748B;
   --color-text-light:     #94A3B8;
 
-  /* Hero gradient */
-  --gradient-hero: linear-gradient(135deg, #1D4ED8 0%, #0E7490 50%, #1D4ED8 100%);
+  /* Hero gradient — deep navy into brand blue with a teal corner glow */
+  --gradient-hero: linear-gradient(125deg, #0B1E52 0%, #14379E 42%, #1D4ED8 72%, #1466A6 100%);
   --gradient-soft: linear-gradient(135deg, #EFF6FF 0%, #F0FDFA 100%);
 
   /* Typography */
@@ -281,7 +281,7 @@ button { cursor: pointer; font-family: inherit; }
   font-size: var(--text-base);
   font-weight: var(--font-semi);
   line-height: 1;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-md);
   border: 2px solid transparent;
   cursor: pointer;
   text-decoration: none;
@@ -654,30 +654,31 @@ button { cursor: pointer; font-family: inherit; }
 .hero {
   background: var(--gradient-hero);
   color: var(--color-white);
-  padding: var(--space-24) 0 var(--space-20);
+  padding: var(--space-20) 0 var(--space-16);
   position: relative;
   overflow: hidden;
+  border-radius: 0 0 var(--radius-2xl) var(--radius-2xl);
 }
 
 .hero::before {
   content: '';
   position: absolute;
-  top: -50%;
-  right: -10%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+  top: -45%;
+  right: -8%;
+  width: 640px;
+  height: 640px;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 68%);
   pointer-events: none;
 }
 
 .hero::after {
   content: '';
   position: absolute;
-  bottom: -30%;
-  left: -5%;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(14,116,144,0.3) 0%, transparent 70%);
+  bottom: -35%;
+  right: -6%;
+  width: 460px;
+  height: 460px;
+  background: radial-gradient(circle, rgba(20,184,166,0.22) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -701,10 +702,10 @@ button { cursor: pointer; font-family: inherit; }
 
 .hero__image img {
   width: 100%;
-  height: 520px;
+  height: 460px;
   object-fit: cover;
-  border-radius: var(--radius-2xl);
-  box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.30);
   display: block;
 }
 
@@ -720,7 +721,7 @@ button { cursor: pointer; font-family: inherit; }
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: var(--space-1) var(--space-3);
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   border: 1px solid rgba(255,255,255,0.25);
   margin-bottom: var(--space-5);
 }
@@ -771,23 +772,40 @@ button { cursor: pointer; font-family: inherit; }
   font-size: var(--text-sm);
   font-weight: var(--font-medium);
   padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
 }
 
 /* Page hero (non-home, smaller) */
 .page-hero {
   background: var(--gradient-hero);
   color: var(--color-white);
-  padding: var(--space-16) 0;
+  padding: var(--space-12) 0 var(--space-16);
   position: relative;
   overflow: hidden;
+  border-radius: 0 0 var(--radius-2xl) var(--radius-2xl);
 }
 
 .page-hero::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 70% 50%, rgba(14,116,144,0.4) 0%, transparent 60%);
+  top: -40%;
+  right: -6%;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(20,184,166,0.20) 0%, transparent 68%);
+  pointer-events: none;
+}
+
+/* Thin teal accent along the curved bottom edge */
+.page-hero::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #14B8A6 0%, #1D4ED8 100%);
+  opacity: 0.9;
   pointer-events: none;
 }
 
